@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml-stylesheet type="text/xsl" href="C:\Users\HP\Downloads\employee.xsl"?>
+<!DOCTYPE customers[
+<!ELEMENT customers (customer)*>
+<!ELEMENT customer (name,phone,Email,Branch,Pet)>
+<!ELEMENT name (#PCDATA)>
+<!ELEMENT phone (#PCDATA)>
+<!ELEMENT Email (#PCDATA)>
+<!ELEMENT Branch (#PCDATA)>
+<!ELEMENT Pet (#PCDATA)>
+]>
+<?xml-stylesheet type="text/xsl" href="employee.xsl"?>
+<customers>
+	<customer>
+		<name>Pavithra</name>
+		<phone>9884067570</phone>
+		<Email>naveen@gmail.com</Email>
+		<Branch>adyar</Branch>
+		<Pet>dog</Pet>
+	</customer>
+</customers>

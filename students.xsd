@@ -1,0 +1,23 @@
+<?xml version = "1.0"?>
+
+<xs:schema xmlns:xs = "http://www.w3.org/2001/XMLSchema">
+   <xs:element name = 'customers'>
+      <xs:complexType>
+         <xs:sequence>
+             <xs:element name = 'customer' type = 'StudentType' minOccurs = '0' 
+                maxOccurs = 'unbounded' />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+
+   <xs:complexType name = "StudentType">
+      <xs:sequence>
+         <xs:element name = "name" type = "xs:string"/>
+         <xs:element name = "phone" type = "xs:positiveInteger"/>
+         <xs:element name = "Email" type = "xs:string"/>
+         <xs:element name = "Branch" type = "xs:string"/>
+         <xs:element name = "Pet" type = "xs:string"/>
+      </xs:sequence>
+      <xs:attribute name = 'no' type = 'xs:positiveInteger'/>
+   </xs:complexType>			 
+</xs:schema>
