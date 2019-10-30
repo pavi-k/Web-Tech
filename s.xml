@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<elements>
+	<food>
+		<item>Burger</item>
+		<price>500</price>
+	</food>
+	<food >
+		<item>Pizza</item>
+		<price>500</price>
+	</food>
+	<food>
+		<item>Coke</item>
+		<price>54</price>
+	</food>
+	<food>
+		<item>Ice tea</item>
+		<price>40</price>
+	</food>
+	<food>
+		<item>Ice cream</item>
+		<price>45</price>
+	</food>
+	<food>
+		<item>Fries</item>
+		<price>140</price>
+	</food>
+</elements>

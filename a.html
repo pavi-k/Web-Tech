@@ -1,0 +1,129 @@
+<html>
+<head>
+<style>
+h1{
+	color:red;
+}
+
+</style>
+</head>
+<body>
+<table id="demo" border="1"></table>
+	<script>
+function fun1()
+{
+var a;
+ if (window.XMLHttpRequest)
+ {// If the browser if IE7+[or]Firefox[or]Chrome[or]Opera[or]Safari
+ a=new XMLHttpRequest();
+ //alert("hi")
+ }
+ else
+ {//If browser is IE6, IE5
+ a=new ActiveXObject("Microsoft.XMLHTTP");
+ //alert("haiii")
+ }
+a.onreadystatechange=function()
+{
+
+ if (a.readyState==4 && a.status==200)
+ {
+ //document.getElementById("myDiv").innerHTML=a.responseText;
+ f3(this);
+ }
+}
+a.open("GET","s.xml",true);
+a.send();
+} // fun1() close
+function f3(xml){
+	var i;
+	var xmldoc=xml.responseXML;
+	var table="<tr><th>Item</th><th>Price(Rs.)</th></tr>";
+	var x=xmldoc.getElementsByTagName("food");
+	for(i=0;i<x.length;i++){
+		table+="<tr><td>"+x[i].getElementsByTagName("item")[0].childNodes[0].nodeValue+"</td><td>"+
+		x[i].getElementsByTagName("price")[0].childNodes[0].nodeValue+"</td></tr>";
+	}
+	document.getElementById("demo").innerHTML=table;
+}
+function fun2(){
+	var b;
+ if (window.XMLHttpRequest)
+ {// If the browser if IE7+[or]Firefox[or]Chrome[or]Opera[or]Safari
+ b=new XMLHttpRequest();
+ //alert("hi")
+ }
+ else
+ {//If browser is IE6, IE5
+ b=new ActiveXObject("Microsoft.XMLHTTP");
+ //alert("haiii")
+ }
+b.onreadystatechange=function()
+{
+
+ if (b.readyState==4 && b.status==200)
+ {
+ //document.getElementById("myDiv").innerHTML=a.responseText;
+ document.getElementById("Di").innerHTML=b.responseText; 
+ f4();
+ }
+}
+b.open("POST","java4s.txt",true);
+b.send();
+} 
+function f4(){
+	var c,e;
+	var d=document.getElementById("sel1").value;
+	if(d=="burger"){
+		c=parseInt(document.getElementById("j").value);
+		e=c*500;
+	}
+	if(d=="Pizza"){
+		c=parseInt(document.getElementById("j").value);
+		e=c*500;
+	}
+	if(d=="Coke"){
+		c=parseInt(document.getElementById("j").value);
+		e=c*54;
+	}
+	if(d=="Ice tea"){
+		c=parseInt(document.getElementById("j").value);
+		e=c*40;
+	}
+	if(d=="Ice cream"){
+		c=parseInt(document.getElementById("j").value);
+		e=c*45;
+	}
+	if(d=="Fries"){
+		c=parseInt(document.getElementById("j").value);
+		e=c*140;
+	}
+	alert("FOOD BAZAAR WELCOMES YOU");
+	document.getElementById("Div").innerHTML=e;
+}
+// fun1() close
+</script> 
+	<h1><centre><b><u>food bazaar</u></b></centre></h1>
+<div id="myDiv" style="width: 300px; height: 30px;"><b>Click on the button below to checkdetails</div>
+<button type="button" onclick="fun1()">Check Details</button>
+<h2><u>Registration Form</h2>
+<p1>Select the furniture:</p1>
+<div class="form-group">
+      			<select class="form-control"  name="place" id="sel1">
+      			<br>
+        		<option>burger</option>
+        		<option>Pizza</option>
+        		<option>Coke</option>
+        		<option>Ice tea</option>
+        		<option>Ice cream</option>
+			<option>Fries</option>
+      			</select>
+   <br>
+   <br>
+  <p3>Enter count:</p3>
+  <input type="number" id="j">
+  <button type="button" onclick="fun2()">Get Amount</button>
+  <div id="Di"></div>
+  <div id="Div"></div>
+</body>
+</html>
