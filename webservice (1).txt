@@ -1,0 +1,132 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package cc;
+
+import java.sql.Connection;
+import java.sql.*;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import javax.annotation.Resource;
+import javax.jws.WebService;
+import javax.jws.WebMethod;
+import javax.jws.WebParam;
+import javax.sql.DataSource;
+
+/**
+ *
+ * @author Suresh Christopher
+ */
+@WebService(serviceName = "NewWebService")
+public class NewWebService {
+    @Resource(name = "myProject")
+    private DataSource myProject;
+    /**
+     * This is a sample web service operation
+     */
+    
+    @WebMethod(operationName = "hello")
+    public String hello(@WebParam(name = "name") String txt) {
+        return "Hello " + txt + " !";
+    }
+
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "bookTicket")
+    public int bookTicket(@WebParam(name = "source") String source, @WebParam(name = "destination") String destination, @WebParam(name = "count") int count) {
+
+        try{
+            int dcount=0;
+            Connection con = DriverManager.getConnection("jdbc:derby://localhost:1527/sample", "app","app");
+            Statement ps = con.createStatement();
+            ResultSet rs = ps.executeQuery("select * from BOOK where SOURCE='Madurai'");   
+            int i =1, status =2;
+            while(rs.next()){
+               dcount=rs.getInt("TICKETS")
+                       ;
+               if(dcount-count>0){
+               status = dcount-count;
+               }
+               else{
+               status = 0;
+               }
+          
+            }
+            rs.close();
+            con.close();
+            return status;
+           //return 2;
+            
+        }catch(SQLException ex){
+            System.err.println("Sql: "+ex.getMessage());
+            return 1;
+        }
+    }
+
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "showPrice")
+    public int showPrice(@WebParam(name = "source") String source, @WebParam(name = "count") int count) {
+        //TODO write your implementation code here:
+        
+        try{
+            int price = 0;
+            Connection con = DriverManager.getConnection("jdbc:derby://localhost:1527/sample", "app","app");
+            Statement ps = con.createStatement();
+            ResultSet rs = ps.executeQuery("select * from BOOK where SOURCE='Madurai'");   
+            int i =1, status =2;
+            while(rs.next()){
+               price=rs.getInt("PRICE");
+               status = count*price;
+               }
+            
+            rs.close();
+            con.close();
+            return status;
+            
+        }catch(SQLException ex){
+            System.err.println("SQL"+ex.getMessage());
+            return 1;
+        }
+        
+    }
+
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "updateCount")
+    public int updateCount(@WebParam(name = "count") int count, @WebParam(name = "src") String src) {
+    try{
+            int price = 0,dcount=0;
+            Connection con = DriverManager.getConnection("jdbc:derby://localhost:1527/sample", "app","app");
+            Statement ps = con.createStatement();
+            
+            Statement ps1 = con.createStatement();
+            ResultSet rs = ps1.executeQuery("select * from BOOK where SOURCE='Madurai'");   
+            int i =1, status =2;
+            while(rs.next()){
+               dcount=rs.getInt("TICKETS");
+            }
+            int fcount = dcount-count;
+            ps.executeUpdate("Update BOOK set TICKETS = "+fcount+"WHERE SOURCE='Madurai'");   
+            
+            con.close();
+            return 1;
+            
+        }catch(SQLException ex){
+            System.err.println("SQL"+ex.getMessage());
+            return 0;
+        }
+    }
+    
+    
+    /**
+     * Web service operation
+     */
+}

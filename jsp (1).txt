@@ -1,0 +1,76 @@
+<%-- 
+    Document   : newjsp
+    Created on : Oct 19, 2019, 9:07:02 AM
+    Author     : Suresh Christopher
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="java.sql.*"%>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>JSP Page</title>
+    </head>
+    <body bgcolor="pink" style="font-family: Verdana; font-size: 25px">  <center> <h1>Airline Reservation!</h1> </center>
+        
+    <center>
+        <table border="1" cellpadding="15">
+            <tr>
+                <th>Source</th>
+                <th>Destination</th>
+                <th>Price</th>
+                <th>Count</th>
+            </tr>
+            <% 
+            try{
+            String s="", d="",c="" , p="";
+                Class.forName("com.mysql.jdbc.Driver");
+            Connection con=DriverManager.getConnection("jdbc:derby://localhost:1527/sample", "app","app");
+            Statement stmt=con.createStatement();
+            ResultSet rs=stmt.executeQuery("select * from BOOK");
+            while(rs.next()){
+            s = rs.getString(1);
+            d = rs.getString(2);
+            c = rs.getString(3);
+            p = rs.getString(4);
+            }
+            %>
+            <tr>
+                <td>
+            <%out.println(s);%>
+                </td>
+                <td>
+            <%out.println(d);%>
+                </td>
+                <td>
+            <%out.println(c);%>
+                </td>
+                <td>
+            <%out.println(p);%>
+                </td>
+                
+            </tr>
+            <%
+            }
+             catch(Exception e)
+            {
+                    out.println(e);
+            }
+            
+            %>
+           
+            </table> 
+            <br>
+       <form action="book">
+            Enter Source:<br>
+            <input type="text" name="Source" value="" /><br>
+            Enter Destination:<br>
+            <input type="text" name="Destination" value="" /><br>
+            Number of tickets:<br>
+            <input type="text" name="count" value="" /></br>
+            <input type="submit" value="Book" />
+        </form>
+    </center>
+    </body>
+</html>
