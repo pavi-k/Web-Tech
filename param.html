@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>nelements</title>
+<script type="text/javascript">
+	function element()
+	{
+		var n1=document.getElementById("n").value;
+		n1=parseInt(n1);
+		var arr=[1,2,3,4,5,6,7,8,9,10];
+		if(n1=="")
+			document.writeln("<h1>The first element is"+arr[0]+"</h1>");
+		else
+		{
+			for(i=0;i<n1;i++)
+			{
+				document.writeln("<h1>"+arr[i]+"</h1>\n");
+			}
+		}
+
+	}
+</script>
+</head>
+<body>
+	<form name="myform">
+		Enter n:<input id="n"><br>
+		<button onclick="element()">click</button>
+	</form>
+</body>
+</html>

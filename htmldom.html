@@ -1,0 +1,55 @@
+<html>
+<body>
+<h1 align="center">HTML DOM Operations</h1>
+<div id="div1">
+<p id="p1">p1: Welcome to DOM Operations </p>
+<p id="p2">p2: Web Technology is Fun@IT Dept. </p>
+<p id="p3"></p>
+<p>You could<br/>
+	1)Create node<br/>
+	2)Insert node<br/>
+	3)Replace Node<br/>
+	4)Remove Node<br/>
+</p>
+<button onclick="dom()">Dom operations</button>
+</div>
+<script>
+	function dom()
+	{
+		var dom = prompt("What do you want to do?");
+		switch(dom)
+		{
+			case "create":
+				var para = document.createElement("p");
+				var node = document.createTextNode("This is new.");
+				x = para.appendChild(node);
+				document.body.appendChild(x);
+				break;
+			case "remove":
+				var parent = document.getElementById("div1");
+				var child=document.getElementById(prompt("Enter attribute id to remove"));
+				parent.removeChild(child);
+				break;
+			case "replace":
+				var para = document.createElement("p");
+				//var child1=prompt("Enter a string:");
+				var node = document.createTextNode(prompt("Enter a string:"));
+				para.appendChild(node);
+				var parent = document.getElementById("div1");
+				var child = document.getElementById(prompt("Enter attribute id to replace"));
+				parent.replaceChild(para, child);
+				break;
+			case "insert":
+				var para = document.createElement("p");
+				var node = document.createTextNode(prompt("Enter a string to insert:"));
+				//var node = document.createTextNode("This is new.");
+				para.appendChild(node);
+				var element = document.getElementById("div1");
+				var child = document.getElementById(prompt("Enter a id before to insert:"));
+				element.insertBefore(para, child);
+				break;
+		}
+	}
+</script>
+</body>
+</html>

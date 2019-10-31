@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>nthlargest</title>
+<script type="text/javascript">
+var arr=[];
+
+var n,i,n1;
+n=window.prompt("Enter the number of elements in array");
+n=parseInt(n);
+for(i=1;i<=n;i++)
+{
+	var a=window.prompt("Enter the "+i+" th element");
+	a=parseInt(a);
+	arr[i]=a;
+}
+arr.sort();
+n1=window.prompt("Enter n");
+n1=parseInt(n1);
+document.writeln("<h1>The "+n1+" th largest element is "+arr[n-n1]+"</h1>");
+</script>

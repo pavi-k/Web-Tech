@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>nthlargest</title>
+<script type="text/javascript">
+var arr=[];
+
+var n,i,n1,sum=0,prod=1;
+n=window.prompt("Enter the number of elements in array");
+n=parseInt(n);
+for(i=1;i<=n;i++)
+{
+	var a=window.prompt("Enter the "+i+" th element");
+	a=parseInt(a);
+	arr[i]=a;
+	sum+=arr[i];
+	prod*=arr[i];
+}
+
+document.writeln("<h1>The sum is "+sum+"\nThe product is "+prod+"</h1>");
+</script>

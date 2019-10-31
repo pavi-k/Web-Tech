@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>Username</title>
+	<script type="text/javascript">
+		function print()
+		{
+			var uname=document.myform.uname.value;
+			if(uname=="")
+			{
+				window.alert("Dont leave the field blank");
+				return false;
+			}
+		document.writeln("<h1>Welcome   "+uname+"  !!!</h1>");
+		}
+		
+
+	</script>
+</head>
+<body>
+	<form name="myform">
+		Username:<input type="text" name="uname" length="40"><br>
+		<input type="submit" value="submit" onclick="print()">
+	</form>
+
+</body>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script>
+		function create()
+		{
+		var n=document.getElementById('lim').value;
+		var n1=parseInt(n);
+		var a=new Array();
+		for(var i=0;i<n1;i++)
+		{
+			a[i]=window.prompt("Enter element "+i);
+			a[i]=parseInt(a[i]);
+			
+		}
+		document.writeln(a);
+}
+	</script>
+</head>
+<body>
+	<h1 align="center">Eighth Java Script Program</h1>
+	<label>Enter how many numbers</label>
+	<input type="number" name="limit" id="lim">
+	<input type="submit" name="" onclick="create()">
+</body>
+</html>

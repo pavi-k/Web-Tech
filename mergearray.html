@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>mergearray</title>
+<script type="text/javascript">
+var arr1=[];
+var arr2=[];
+
+var n1,n2;
+n1=window.prompt("Enter the number of elements in array");
+n1=parseInt(n1);
+n2=window.prompt("Enter the number of elements in array");
+n2=parseInt(n2);
+for(i=1;i<=n1;i++)
+{
+	var a=window.prompt("Enter the "+i+" th element of array 1");
+	a=parseInt(a);
+	arr1[i]=a;
+}
+for(i=1;i<=n2;i++)
+{
+	var b=window.prompt("Enter the "+i+" th element of array 1");
+	b=parseInt(b);
+	arr2[i]=b;
+}
+for(i=1;i<=n2;i++)
+{
+	if(!arr1.includes(arr2[i]))
+	{
+		arr1.push(arr2[i]);
+	}
+}
+document.writeln("<h1>The elements in the merged array are:\n</h1>");
+for(i=1;i<arr1.length;i++)
+{
+	document.writeln("<h1>"+arr1[i]+"</h1>\n");
+}
+</script>
